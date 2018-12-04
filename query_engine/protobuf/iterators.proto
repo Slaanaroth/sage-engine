@@ -32,6 +32,12 @@ message SavedIndexJoinIterator {
   TriplePattern inner = 3;
   map<string, string> muc = 4;
   uint64 offset = 5;
+  uint64 cardinality = 6;
+  uint64 mucNumber = 7;
+  uint64 loopCardTotal = 8;
+  uint64 loopOffsetTotal = 9;
+  uint64 maxInnerCard = 10;
+  bool optional = 11;
 }
 
 message SavedBagUnionIterator {

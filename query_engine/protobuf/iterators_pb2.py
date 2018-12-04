@@ -19,8 +19,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='iterators.proto',
   package='iterators',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fiterators.proto\x12\titerators\"R\n\rTriplePattern\x12\x0f\n\x07subject\x18\x01 \x01(\t\x12\x11\n\tpredicate\x18\x02 \x01(\t\x12\x0e\n\x06object\x18\x03 \x01(\t\x12\r\n\x05graph\x18\x04 \x01(\t\"b\n\x11SavedScanIterator\x12(\n\x06triple\x18\x01 \x01(\x0b\x32\x18.iterators.TriplePattern\x12\x0e\n\x06offset\x18\x02 \x01(\x04\x12\x13\n\x0b\x63\x61rdinality\x18\x03 \x01(\x03\"\xdc\x01\n\x17SavedProjectionIterator\x12\x0e\n\x06values\x18\x01 \x03(\t\x12\x33\n\x0bscan_source\x18\x02 \x01(\x0b\x32\x1c.iterators.SavedScanIteratorH\x00\x12\x38\n\x0bjoin_source\x18\x03 \x01(\x0b\x32!.iterators.SavedIndexJoinIteratorH\x00\x12\x38\n\x0cunion_source\x18\x04 \x01(\x0b\x32 .iterators.SavedBagUnionIteratorH\x00\x42\x08\n\x06source\"\xaf\x02\n\x16SavedIndexJoinIterator\x12\x33\n\x0bscan_source\x18\x01 \x01(\x0b\x32\x1c.iterators.SavedScanIteratorH\x00\x12\x38\n\x0bjoin_source\x18\x02 \x01(\x0b\x32!.iterators.SavedIndexJoinIteratorH\x00\x12\'\n\x05inner\x18\x03 \x01(\x0b\x32\x18.iterators.TriplePattern\x12\x37\n\x03muc\x18\x04 \x03(\x0b\x32*.iterators.SavedIndexJoinIterator.MucEntry\x12\x0e\n\x06offset\x18\x05 \x01(\x04\x1a*\n\x08MucEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"\x8c\x02\n\x15SavedBagUnionIterator\x12\x37\n\tproj_left\x18\x01 \x01(\x0b\x32\".iterators.SavedProjectionIteratorH\x00\x12\x36\n\nunion_left\x18\x02 \x01(\x0b\x32 .iterators.SavedBagUnionIteratorH\x00\x12\x38\n\nproj_right\x18\x03 \x01(\x0b\x32\".iterators.SavedProjectionIteratorH\x01\x12\x37\n\x0bunion_right\x18\x04 \x01(\x0b\x32 .iterators.SavedBagUnionIteratorH\x01\x42\x06\n\x04leftB\x07\n\x05right\"\xa7\x01\n\x13SavedFilterIterator\x12\x39\n\x0bproj_source\x18\x01 \x01(\x0b\x32\".iterators.SavedProjectionIteratorH\x00\x12\x37\n\rfilter_source\x18\x02 \x01(\x0b\x32\x1e.iterators.SavedFilterIteratorH\x00\x12\x12\n\nexpression\x18\x03 \x01(\tB\x08\n\x06source\"\xc2\x01\n\x08RootTree\x12\x39\n\x0bproj_source\x18\x01 \x01(\x0b\x32\".iterators.SavedProjectionIteratorH\x00\x12\x38\n\x0cunion_source\x18\x02 \x01(\x0b\x32 .iterators.SavedBagUnionIteratorH\x00\x12\x37\n\rfilter_source\x18\x03 \x01(\x0b\x32\x1e.iterators.SavedFilterIteratorH\x00\x42\x08\n\x06sourceb\x06proto3')
+  serialized_pb=_b('\n\x0fiterators.proto\x12\titerators\"R\n\rTriplePattern\x12\x0f\n\x07subject\x18\x01 \x01(\t\x12\x11\n\tpredicate\x18\x02 \x01(\t\x12\x0e\n\x06object\x18\x03 \x01(\t\x12\r\n\x05graph\x18\x04 \x01(\t\"b\n\x11SavedScanIterator\x12(\n\x06triple\x18\x01 \x01(\x0b\x32\x18.iterators.TriplePattern\x12\x0e\n\x06offset\x18\x02 \x01(\x04\x12\x13\n\x0b\x63\x61rdinality\x18\x03 \x01(\x03\"\xdc\x01\n\x17SavedProjectionIterator\x12\x0e\n\x06values\x18\x01 \x03(\t\x12\x33\n\x0bscan_source\x18\x02 \x01(\x0b\x32\x1c.iterators.SavedScanIteratorH\x00\x12\x38\n\x0bjoin_source\x18\x03 \x01(\x0b\x32!.iterators.SavedIndexJoinIteratorH\x00\x12\x38\n\x0cunion_source\x18\x04 \x01(\x0b\x32 .iterators.SavedBagUnionIteratorH\x00\x42\x08\n\x06source\"\xaf\x03\n\x16SavedIndexJoinIterator\x12\x33\n\x0bscan_source\x18\x01 \x01(\x0b\x32\x1c.iterators.SavedScanIteratorH\x00\x12\x38\n\x0bjoin_source\x18\x02 \x01(\x0b\x32!.iterators.SavedIndexJoinIteratorH\x00\x12\'\n\x05inner\x18\x03 \x01(\x0b\x32\x18.iterators.TriplePattern\x12\x37\n\x03muc\x18\x04 \x03(\x0b\x32*.iterators.SavedIndexJoinIterator.MucEntry\x12\x0e\n\x06offset\x18\x05 \x01(\x04\x12\x13\n\x0b\x63\x61rdinality\x18\x06 \x01(\x04\x12\x11\n\tmucNumber\x18\x07 \x01(\x04\x12\x15\n\rloopCardTotal\x18\x08 \x01(\x04\x12\x17\n\x0floopOffsetTotal\x18\t \x01(\x04\x12\x14\n\x0cmaxInnerCard\x18\n \x01(\x04\x12\x10\n\x08optional\x18\x0b \x01(\x08\x1a*\n\x08MucEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"\x8c\x02\n\x15SavedBagUnionIterator\x12\x37\n\tproj_left\x18\x01 \x01(\x0b\x32\".iterators.SavedProjectionIteratorH\x00\x12\x36\n\nunion_left\x18\x02 \x01(\x0b\x32 .iterators.SavedBagUnionIteratorH\x00\x12\x38\n\nproj_right\x18\x03 \x01(\x0b\x32\".iterators.SavedProjectionIteratorH\x01\x12\x37\n\x0bunion_right\x18\x04 \x01(\x0b\x32 .iterators.SavedBagUnionIteratorH\x01\x42\x06\n\x04leftB\x07\n\x05right\"\xa7\x01\n\x13SavedFilterIterator\x12\x39\n\x0bproj_source\x18\x01 \x01(\x0b\x32\".iterators.SavedProjectionIteratorH\x00\x12\x37\n\rfilter_source\x18\x02 \x01(\x0b\x32\x1e.iterators.SavedFilterIteratorH\x00\x12\x12\n\nexpression\x18\x03 \x01(\tB\x08\n\x06source\"\xc2\x01\n\x08RootTree\x12\x39\n\x0bproj_source\x18\x01 \x01(\x0b\x32\".iterators.SavedProjectionIteratorH\x00\x12\x38\n\x0cunion_source\x18\x02 \x01(\x0b\x32 .iterators.SavedBagUnionIteratorH\x00\x12\x37\n\rfilter_source\x18\x03 \x01(\x0b\x32\x1e.iterators.SavedFilterIteratorH\x00\x42\x08\n\x06sourceb\x06proto3')
 )
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -38,28 +39,28 @@ _TRIPLEPATTERN = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='predicate', full_name='iterators.TriplePattern.predicate', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='object', full_name='iterators.TriplePattern.object', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='graph', full_name='iterators.TriplePattern.graph', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -90,21 +91,21 @@ _SAVEDSCANITERATOR = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='offset', full_name='iterators.SavedScanIterator.offset', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='cardinality', full_name='iterators.SavedScanIterator.cardinality', index=2,
       number=3, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -135,28 +136,28 @@ _SAVEDPROJECTIONITERATOR = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='scan_source', full_name='iterators.SavedProjectionIterator.scan_source', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='join_source', full_name='iterators.SavedProjectionIterator.join_source', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='union_source', full_name='iterators.SavedProjectionIterator.union_source', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -190,14 +191,14 @@ _SAVEDINDEXJOINITERATOR_MUCENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='value', full_name='iterators.SavedIndexJoinIterator.MucEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -210,8 +211,8 @@ _SAVEDINDEXJOINITERATOR_MUCENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=689,
-  serialized_end=731,
+  serialized_start=817,
+  serialized_end=859,
 )
 
 _SAVEDINDEXJOINITERATOR = _descriptor.Descriptor(
@@ -227,35 +228,77 @@ _SAVEDINDEXJOINITERATOR = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='join_source', full_name='iterators.SavedIndexJoinIterator.join_source', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='inner', full_name='iterators.SavedIndexJoinIterator.inner', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='muc', full_name='iterators.SavedIndexJoinIterator.muc', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='offset', full_name='iterators.SavedIndexJoinIterator.offset', index=4,
       number=5, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='cardinality', full_name='iterators.SavedIndexJoinIterator.cardinality', index=5,
+      number=6, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mucNumber', full_name='iterators.SavedIndexJoinIterator.mucNumber', index=6,
+      number=7, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='loopCardTotal', full_name='iterators.SavedIndexJoinIterator.loopCardTotal', index=7,
+      number=8, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='loopOffsetTotal', full_name='iterators.SavedIndexJoinIterator.loopOffsetTotal', index=8,
+      number=9, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='maxInnerCard', full_name='iterators.SavedIndexJoinIterator.maxInnerCard', index=9,
+      number=10, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='optional', full_name='iterators.SavedIndexJoinIterator.optional', index=10,
+      number=11, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -272,7 +315,7 @@ _SAVEDINDEXJOINITERATOR = _descriptor.Descriptor(
       index=0, containing_type=None, fields=[]),
   ],
   serialized_start=438,
-  serialized_end=741,
+  serialized_end=869,
 )
 
 
@@ -289,28 +332,28 @@ _SAVEDBAGUNIONITERATOR = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='union_left', full_name='iterators.SavedBagUnionIterator.union_left', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='proj_right', full_name='iterators.SavedBagUnionIterator.proj_right', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='union_right', full_name='iterators.SavedBagUnionIterator.union_right', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -329,8 +372,8 @@ _SAVEDBAGUNIONITERATOR = _descriptor.Descriptor(
       name='right', full_name='iterators.SavedBagUnionIterator.right',
       index=1, containing_type=None, fields=[]),
   ],
-  serialized_start=744,
-  serialized_end=1012,
+  serialized_start=872,
+  serialized_end=1140,
 )
 
 
@@ -347,21 +390,21 @@ _SAVEDFILTERITERATOR = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='filter_source', full_name='iterators.SavedFilterIterator.filter_source', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='expression', full_name='iterators.SavedFilterIterator.expression', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -377,8 +420,8 @@ _SAVEDFILTERITERATOR = _descriptor.Descriptor(
       name='source', full_name='iterators.SavedFilterIterator.source',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1015,
-  serialized_end=1182,
+  serialized_start=1143,
+  serialized_end=1310,
 )
 
 
@@ -395,21 +438,21 @@ _ROOTTREE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='union_source', full_name='iterators.RootTree.union_source', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='filter_source', full_name='iterators.RootTree.filter_source', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -425,8 +468,8 @@ _ROOTTREE = _descriptor.Descriptor(
       name='source', full_name='iterators.RootTree.source',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1185,
-  serialized_end=1379,
+  serialized_start=1313,
+  serialized_end=1507,
 )
 
 _SAVEDSCANITERATOR.fields_by_name['triple'].message_type = _TRIPLEPATTERN
@@ -496,7 +539,6 @@ DESCRIPTOR.message_types_by_name['SavedIndexJoinIterator'] = _SAVEDINDEXJOINITER
 DESCRIPTOR.message_types_by_name['SavedBagUnionIterator'] = _SAVEDBAGUNIONITERATOR
 DESCRIPTOR.message_types_by_name['SavedFilterIterator'] = _SAVEDFILTERITERATOR
 DESCRIPTOR.message_types_by_name['RootTree'] = _ROOTTREE
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 TriplePattern = _reflection.GeneratedProtocolMessageType('TriplePattern', (_message.Message,), dict(
   DESCRIPTOR = _TRIPLEPATTERN,

@@ -63,8 +63,14 @@ def load_nlj(saved_plan, dataset):
     if len(saved_plan.muc) > 0:
         currentBinding = saved_plan.muc
     iterOffset = saved_plan.offset
+    mucNumber = saved_plan.mucNumber
+    cardTotal = saved_plan.loopCardTotal
+    offsetTotal = saved_plan.loopOffsetTotal
+    maxInnerC = saved_plan.maxInnerCard
+
     dataset = dataset.get_graph(innerTriple['graph'])
-    return IndexJoinIterator(source, innerTriple, dataset, currentBinding=currentBinding, iterOffset=iterOffset)
+
+    return IndexJoinIterator(source, innerTriple, dataset, currentBinding=currentBinding, iterOffset=iterOffset,mucNumber=mucNumber, cardTotal=cardTotal, offsetTotal=offsetTotal, maxInnerC=maxInnerC)
 
 
 def load_union(saved_plan, dataset):

@@ -20,7 +20,7 @@ class IndexJoinIterator(PreemptableIterator):
         - iterOffset ``integer=0]`` - An offset used to resume processing of an inner loop.
     """
 
-    def __init__(self, source, innerTriple, hdtDocument, currentBinding=None, iterOffset=0):
+    def __init__(self, source, innerTriple, hdtDocument, currentBinding=None, iterOffset=0, mucNumber=0, cardTotal=0, offsetTotal=0, maxInnerC=0):
         super(IndexJoinIterator, self).__init__()
         self._source = source
         self._innerTriple = innerTriple
@@ -28,6 +28,12 @@ class IndexJoinIterator(PreemptableIterator):
         self._hdtDocument = hdtDocument
         self._iterOffset = iterOffset
         self._currentIter = None
+        self._mucNumber = mucNumber
+        self._loopCardTotal = cardTotal
+        self._loopOffsetTotal = offsetTotal
+        self._currentCard = 0
+        self._maxInnerCard = maxInnerC
+
         if self._currentBinding is not None:
             self._currentIter = self._initInnerLoop(self._innerTriple, self._currentBinding, offset=iterOffset)
 
@@ -51,6 +57,10 @@ class IndexJoinIterator(PreemptableIterator):
     def _initInnerLoop(self, triple, mappings, offset=0):
         (s, p, o) = (apply_bindings(triple['subject'], mappings), apply_bindings(triple['predicate'], mappings), apply_bindings(triple['object'], mappings))
         iterator, card = self._hdtDocument.search_triples(s, p, o, offset=offset)
+        self._currentCard = self._loopCardTotal
+        self._loopCardTotal += card
+        if card > self._maxInnerCard:
+            self._maxInnerCard = card
         if card == 0:
             return None
         return ScanIterator(iterator, tuple_to_triple(s, p, o), card)
@@ -66,6 +76,7 @@ class IndexJoinIterator(PreemptableIterator):
             raise IteratorExhausted()
         while self._currentIter is None or (not self._currentIter.has_next()):
             self._currentBinding = await self._source.next()
+            self._mucNumber += 1
             self._currentIter = self._initInnerLoop(self._innerTriple, self._currentBinding)
             await sleep(0)
         return await self._innerLoop()
@@ -85,8 +96,14 @@ class IndexJoinIterator(PreemptableIterator):
         saved_join.inner.CopyFrom(inner)
         if self._currentBinding is not None:
             pyDict_to_protoDict(self._currentBinding, saved_join.muc)
+            saved_join.mucNumber = self._mucNumber
         if self._currentIter is not None:
             saved_join.offset = self._currentIter.offset + self._currentIter.nb_reads
+            saved_join.cardinality = self._currentIter._cardinality
         else:
             saved_join.offset = 0
+        saved_join.loopCardTotal = self._loopCardTotal
+        saved_join.maxInnerCard = self._maxInnerCard
+        saved_join.loopOffsetTotal = self._currentCard + saved_join.offset
+
         return saved_join
