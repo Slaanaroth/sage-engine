@@ -58,7 +58,8 @@ class IndexJoinIterator(PreemptableIterator):
         (s, p, o) = (apply_bindings(triple['subject'], mappings), apply_bindings(triple['predicate'], mappings), apply_bindings(triple['object'], mappings))
         iterator, card = self._hdtDocument.search_triples(s, p, o, offset=offset)
         self._currentCard = self._loopCardTotal
-        self._loopCardTotal += card
+        if offset == 0:
+            self._loopCardTotal += card
         if card > self._maxInnerCard:
             self._maxInnerCard = card
         if card == 0:
